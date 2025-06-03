@@ -6,7 +6,7 @@ const IncomeList = ({ incomes }) => (
       {incomes.map((income, idx) => (
         <li key={idx} className="flex justify-between border-b py-1">
           <span>{income.desc}</span>
-          <span className="text-green-600 font-bold">${income.amount.toFixed(2)}</span>
+          <span className="text-green-600 font-bold">₹{income.amount.toFixed(2)}</span>
         </li>
       ))}
     </ul>
