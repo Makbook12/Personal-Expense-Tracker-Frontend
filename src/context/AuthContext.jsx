@@ -1,13 +1,14 @@
 import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
+const API_URL = process.env.REACT_APP_API_URL;
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   const login = async (email, password) => {
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -23,7 +24,7 @@ export function AuthProvider({ children }) {
 
   const register = async (email, password, name) => {
     try {
-      const res = await fetch('/api/auth/register', {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, name }),
